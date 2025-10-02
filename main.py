@@ -160,5 +160,14 @@ def print_gex_surface(spot, data):
 
 
 if __name__ == "__main__":
-    ticker = input("Enter desired ticker:").upper()
-    run(ticker)
+    tickers = ["SPX", "NDX"]
+
+    while True:
+        for ticker in tickers:
+            print(f"\n=== {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} :: {ticker} ===")
+            try:
+                run(ticker)
+            except Exception as e:
+                print(f"Error while running {ticker}: {e}")
+        print("\nSleeping for 30 seconds...\n")
+        time.sleep(30)
